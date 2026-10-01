@@ -1,0 +1,272 @@
+.project-details-button {
+  margin-top: 20px;
+}
+.project-dialog {
+  width: min(860px, calc(100% - 48px));
+  max-height: calc(100svh - 64px);
+  margin: auto;
+  padding: 0;
+  border: 1px solid #333;
+  border-radius: 20px;
+  background: #080808;
+  color: #eee;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+.project-dialog::backdrop {
+  background: rgb(0 0 0 / 80%);
+}
+.project-dialog-content {
+  padding: 40px;
+}
+.project-dialog-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 24px;
+}
+.project-dialog-category {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #aaa;
+}
+.project-dialog h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.4;
+}
+.project-dialog h2:focus {
+  outline: none;
+}
+.project-dialog-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid #444;
+  border-radius: 50%;
+  background: transparent;
+  color: #eee;
+}
+.project-dialog-close:hover {
+  background: #202020;
+}
+.project-dialog-overview {
+  margin-top: 24px;
+  max-width: 640px;
+  color: #bbb;
+  font-size: 16px;
+  line-height: 1.9;
+}
+.project-dialog h3 {
+  margin-bottom: 14px;
+  font-size: 17px;
+  font-weight: 500;
+}
+.project-dialog-role {
+  margin-top: 28px;
+  padding: 22px 0;
+  border-block: 1px solid #303030;
+}
+.project-dialog-role p,
+.project-dialog-architecture p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #bbb;
+}
+.project-dialog-columns {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 40px;
+  margin-top: 28px;
+}
+.project-detail-features {
+  margin: 0;
+  padding-left: 20px;
+  list-style: disc;
+  color: #bbb;
+  font-size: 15px;
+  line-height: 1.9;
+}
+.project-detail-features li + li {
+  margin-top: 12px;
+}
+.project-detail-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.project-detail-tools li {
+  padding: 6px 12px;
+  border: 1px solid #333;
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 13px;
+}
+.project-dialog-architecture {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid #303030;
+}
+.project-system-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0;
+  margin: 20px 0;
+  list-style: none;
+}
+.project-system-flow li {
+  position: relative;
+  display: grid;
+  place-items: center;
+  padding: 16px 10px;
+  border: 1px solid #444;
+  border-radius: 8px;
+  font-size: 13px;
+  text-align: center;
+}
+.project-system-flow li + li::before {
+  content: '→';
+  position: absolute;
+  left: -17px;
+  color: #888;
+}
+@media (max-width: 600px) {
+  .project-dialog {
+    width: 100%;
+    height: 100svh;
+    max-height: 100svh;
+    border: 0;
+    border-radius: 0;
+  }
+  .project-dialog-content {
+    padding: 24px 20px;
+  }
+  .project-dialog-columns {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .project-system-flow {
+    grid-template-columns: 1fr;
+  }
+  .project-system-flow li + li::before {
+    content: '↓';
+    top: -23px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media print {
+  .project-dialog,
+  .project-details-button {
+    display: none !important;
+  }
+}
+
+.project-dialog {
+  scrollbar-width: thin;
+  scrollbar-color: #555 transparent;
+  scrollbar-gutter: stable;
+}
+.project-dialog::-webkit-scrollbar {
+  width: 6px;
+}
+.project-dialog::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 18px;
+}
+.project-dialog::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 999px;
+}
+.project-dialog::-webkit-scrollbar-thumb:hover {
+  background: #888;
+}
+.project-dialog::-webkit-scrollbar-button {
+  display: none;
+}
+
+@supports selector(::-webkit-scrollbar) {
+  .project-dialog {
+    scrollbar-width: auto;
+    scrollbar-color: auto;
+  }
+  .project-dialog::-webkit-scrollbar-button:single-button {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+  .project-dialog::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+.project-dialog-actions {
+  margin-top: 24px;
+}
+
+.project-screenshot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.project-dialog-preview {
+  margin: 28px 0 0;
+}
+.project-dialog-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #333;
+  border-radius: 12px;
+}
+.project-dialog-preview figcaption {
+  margin-top: 10px;
+  color: #aaa;
+  font-size: 12px;
+}
+
+.project-screenshot {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+.project-screenshot img {
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgb(0 0 0 / 45%);
+}
+
+.project-screenshot {
+  position: relative;
+  isolation: isolate;
+}
+.project-screenshot-float {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.project-screenshot-shadow {
+  position: absolute;
+  bottom: -12px;
+  left: 10%;
+  width: 80%;
+  height: 20px;
+  border-radius: 50%;
+  background: #aaa;
+  filter: blur(14px);
+  opacity: 0.1;
+  pointer-events: none;
+}
+.project-screenshot img {
+  box-shadow: 0 28px 50px rgb(0 0 0 / 65%);
+}
